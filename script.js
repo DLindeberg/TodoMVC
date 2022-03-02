@@ -7,7 +7,6 @@ form.onsubmit = event => {
 }
 
 enterbutton.onclick = event => {
-    let i = 0;
     const thisTitle = document.createElement("li");
     thisTitle.setAttribute("id", "todolist");
     thisTitle.innerHTML = "<input type='checkbox'>" + input.value + "<button class='delete'>❌</button>";
