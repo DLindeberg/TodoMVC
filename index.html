@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="description" content="To do List">
+    <meta name="keywords" content="List,To-Do,css, HTML">
+    <meta name="author" content="Joar Warholm, Daniel Lindeberg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <title>ToDoMVC</title>
+</head>
+<body>
+    <header>
+        <h1>todos</h1>
+    </header>
+    <main>
+        <form id="inputarea">
+            <input id="check-all" type="checkbox">
+            <input id="input" type="text" placeholder="What needs to be done?" size="50" autofocus="">
+            <button type="submit" id="enterbutton"></button>
+        </form>
+        <ul id="todo">
+        </ul>
+        <footer id="todofooter">
+            <ul id="filter">
+                <li id="count">
+                     x items left
+                </li>
+                <li>
+                    
+                    <button type="button" id="all">All</button>
+                </li>
+                <li>
+                    <button type="button" id="active">Active</button>
+                </li>
+                <li>
+                    <button type="button" id="completed">Completed</button>
+                </li>
+                <li>
+                    <button type="button" id="clear-completed">Clear Completed</button>
+                    <!-- dommanipulation....? -->
+                </li>
+            </ul>
+        </footer>
+    </main>
+    
+    <footer id="info">
+        <p>
+            Written by:
+            <a href="https://github.com/DLindeberg/">Daniel Lindeberg</a>
+            &
+            <a href="https://github.com/joarwar/">Joar Warholm</a>
+
+        </p>
+    </footer>
+</body>
+</html>
