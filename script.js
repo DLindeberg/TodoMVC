@@ -3,6 +3,7 @@ let form = document.querySelector("form");
 let input = document.querySelector("#input");
 let counter = 0;
 document.getElementById("todofooter").style.display = "none";
+let checkBoxes = document.getElementById("checkall")
 
 form.onsubmit = event => {
     event.preventDefault();
@@ -23,6 +24,9 @@ enterbutton.onclick = event => {
     const inputInput = document.getElementById('input');
     inputInput.value = '';
     toggleFooter();
+}
+checkBoxes.onclick = event =>{
+    checkAll();
 }
 
 function deleteTodo() {
@@ -70,5 +74,21 @@ function toggleFooter(){
     }
     else{
         document.getElementById("todofooter").style.display = "block";
+    }
+}
+
+function checkAll(){
+    let isChecked = document.getElementById('checkall')
+    let todos = document.getElementById('todo').getElementsByTagName('li');
+    let i= 0;
+    for (i = 0; i < todos.length; i++){
+        let liElement = todos[i].firstChild;
+        liElement.checked = true;
+        if(isChecked.checked){
+            liElement.checked = true;
+        }
+        else{
+            liElement.checked = false;
+        }
     }
 }
