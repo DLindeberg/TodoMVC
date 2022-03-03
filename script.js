@@ -14,26 +14,38 @@ enterbutton.onclick = event => {
     }
     const thisTitle = document.createElement("li");
     thisTitle.setAttribute("id", "todolist");
-    thisTitle.innerHTML = "<input type='checkbox'>" + input.value + "<button class='delete'>❌</button>";
+    thisTitle.innerHTML = "<input type='checkbox' class='check'>" + input.value + "<button class='delete'>❌</button>";
     document.querySelector("#todo").appendChild(thisTitle)
     counter++;
     document.getElementById("count").innerHTML = counter + " items left";
     deleteTodo();
+    checkBox();
     const inputInput = document.getElementById('input');
     inputInput.value = '';
     hideFooter();    
 }
 
 function deleteTodo() {
-    var close = document.getElementsByClassName("delete");
+    var remove = document.getElementsByClassName("delete");
     var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
+    for (i = 0; i < remove.length; i++) {
+        remove[i].onclick = function () {
             var li = this.parentElement;
             li.remove(li);
             counter--;
             document.getElementById("count").innerHTML = counter + " items left";
             hideFooter();
+        }
+    }
+}
+
+function checkBox(){
+    var check = document.getElementsByClassName("check");
+    var i;
+    for (i = 0; i < check.length; i++) {
+        check[i].onclick = function () {
+            counter--;
+            document.getElementById("count").innerHTML = counter + " items left";
         }
     }
 }
