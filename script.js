@@ -18,36 +18,31 @@ enterbutton.onclick = event => {
     document.querySelector("#todo").appendChild(thisTitle)
     counter++;
     document.getElementById("count").innerHTML = counter + " items left";
-    addTask();
+    deleteTodo();
     const inputInput = document.getElementById('input');
     inputInput.value = '';
+    hideFooter();    
+}
+
+function deleteTodo() {
+    var close = document.getElementsByClassName("delete");
+    var i;
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            var li = this.parentElement;
+            li.remove(li);
+            counter--;
+            document.getElementById("count").innerHTML = counter + " items left";
+            hideFooter();
+        }
+    }
+}
+
+function hideFooter(){
     if(counter == 0){
         document.getElementById("todofooter").style.display = "none";
     }
     else{
         document.getElementById("todofooter").style.display = "block";
     }
-    
 }
-
-function addTask() {
-    var close = document.getElementsByClassName("delete");
-    var d;
-    for (d = 0; d < close.length; d++) {
-        close[d].onclick = function () {
-            var div = this.parentElement;
-            div.remove(div);
-            counter--;
-            document.getElementById("count").innerHTML = counter + " items left";
-            if(counter == 0){
-                document.getElementById("todofooter").style.display = "none";
-            }
-            else{
-                document.getElementById("todofooter").style.display = "block";
-            }
-        }
-    }
-}
-
-
-
