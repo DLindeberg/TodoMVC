@@ -3,6 +3,7 @@ let form = document.querySelector("form");
 let input = document.querySelector("#input");
 let counter = 0;
 document.getElementById("todofooter").style.display = "none";
+
 let checkBoxes = document.getElementById("checkall")
 
 form.onsubmit = event => {
@@ -10,6 +11,7 @@ form.onsubmit = event => {
 }
 
 enterbutton.onclick = event => {
+
     if (!input.value) {
         return;
     }
@@ -20,22 +22,51 @@ enterbutton.onclick = event => {
     counter++;
     document.getElementById("count").innerHTML = counter + " items left";
     deleteTodo();
-    checkBox();
+
     const inputInput = document.getElementById('input');
     inputInput.value = '';
-    toggleFooter();
+    checkState();
+
+    thisTitle.firstChild.addEventListener('change', function (event) {
+        if (this.checked) {
+            counter--;
+        } else {
+            counter++;
+        }
+
+        document.getElementById("count").innerHTML = counter + " items left";
+    });
 }
-checkBoxes.onclick = event =>{
-    checkAll();
+
+checkBoxes.onclick = event => {
+    CheckAll();
+}
+
+function CheckAll() {
+    var shouldChecked = document.getElementById('checkall');
+    var todos = document.getElementById('todo').getElementsByTagName('li');
+
+    for (let index = 0; index < todos.length; index++) {
+        let liElement = todos[index].firstChild;
+        shouldChecked.checked ? liElement.checked = true : liElement.checked = false
+        if (shouldChecked.checked) {
+            liElement.checked = true;
+            counter = 0;
+        } else {
+            liElement.checked = false;
+            counter = todos.length;
+        }
+    }
+    document.getElementById("count").innerHTML = counter + " items left";
 }
 
 function deleteTodo() {
-    
     var remove = document.getElementsByClassName("delete");
     var i;
     for (i = 0; i < remove.length; i++) {
         remove[i].onclick = function () {
             var li = this.parentElement;
+
             var elem = li.firstChild;
             console.log(elem.checked);
             li.remove(li);
@@ -43,52 +74,24 @@ function deleteTodo() {
                 counter--;
             }
             document.getElementById("count").innerHTML = counter + " items left";
-            toggleFooter();
         }
     }
 }
 
-function checkBox() {
-    var check = document.getElementsByClassName("check");
-    var i;
-    for (i = 0; i < check.length; i++) {
-        check[i].onclick = function () {
-            if (this.checked) {
-                counter--;
-                document.getElementById("count").innerHTML = counter + " items left";
-                // lägg till i css??? för att överstryka/fadea
-            }
-            else {
-                counter++;
-                document.getElementById("count").innerHTML = counter + " items left";
-                // lägg till i css??? för att överstryka/fadea
-            }
-        }
-    }
-}
-
-function toggleFooter(){
+function checkState() {
     var totalItems = document.querySelector("#todo").children.length;
-    if(totalItems == 0){
+    if (totalItems == 0) {
         document.getElementById("todofooter").style.display = "none";
-    }
-    else{
+    } else {
         document.getElementById("todofooter").style.display = "block";
     }
 }
 
-function checkAll(){
-    let isChecked = document.getElementById('checkall')
-    let todos = document.getElementById('todo').getElementsByTagName('li');
-    let i= 0;
-    for (i = 0; i < todos.length; i++){
-        let liElement = todos[i].firstChild;
-        liElement.checked = true;
-        if(isChecked.checked){
-            liElement.checked = true;
-        }
-        else{
-            liElement.checked = false;
-        }
+function hideFooter() {
+    if (counter == 0) {
+        document.getElementById("todofooter").style.display = "none";
+    }
+    else {
+        document.getElementById("todofooter").style.display = "block";
     }
 }
