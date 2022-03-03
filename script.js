@@ -22,36 +22,50 @@ enterbutton.onclick = event => {
     checkBox();
     const inputInput = document.getElementById('input');
     inputInput.value = '';
-    hideFooter();    
+    toggleFooter();
 }
 
 function deleteTodo() {
+    
     var remove = document.getElementsByClassName("delete");
     var i;
     for (i = 0; i < remove.length; i++) {
         remove[i].onclick = function () {
             var li = this.parentElement;
+            var elem = li.firstChild;
+            console.log(elem.checked);
             li.remove(li);
-            counter--;
+            if (!elem.checked) {
+                counter--;
+            }
             document.getElementById("count").innerHTML = counter + " items left";
-            hideFooter();
+            toggleFooter();
         }
     }
 }
 
-function checkBox(){
+function checkBox() {
     var check = document.getElementsByClassName("check");
     var i;
     for (i = 0; i < check.length; i++) {
         check[i].onclick = function () {
-            counter--;
-            document.getElementById("count").innerHTML = counter + " items left";
+            if (this.checked) {
+                counter--;
+                document.getElementById("count").innerHTML = counter + " items left";
+                // lägg till i css??? för att överstryka/fadea
+            }
+            else {
+                counter++;
+                document.getElementById("count").innerHTML = counter + " items left";
+                // lägg till i css??? för att överstryka/fadea
+            }
         }
     }
 }
 
-function hideFooter(){
-    if(counter == 0){
+function toggleFooter(){
+    var totalItems = document.querySelector("#todo").children.length;
+    if(totalItems == 0){
         document.getElementById("todofooter").style.display = "none";
     }
     else{
