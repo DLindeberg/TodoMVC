@@ -161,9 +161,11 @@ function styleLinethrough() {
         let liElement = list[i].firstChild
         if (liElement.checked) {
             list[i].style.textDecoration = "line-through";
+            list[i].style.color = "#d4d4d4";
         }
         else {
             list[i].style.textDecoration = "none";
+            list[i].style.color = "#4e4d4d";
         }
     }
 }
