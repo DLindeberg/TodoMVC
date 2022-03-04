@@ -31,8 +31,6 @@ enterbutton.onclick = event => {
     counter++;
     document.getElementById("count").innerHTML = counter + " items left";
     deleteTodo();
-
-
     const inputInput = document.getElementById('input');
     inputInput.value = '';
     checkState();
@@ -47,49 +45,50 @@ enterbutton.onclick = event => {
         }
         document.getElementById("count").innerHTML = counter + " items left";
 
-        if(CheckIfAnyIsChecked()){
+        if (CheckIfAnyIsChecked()) {
             document.getElementById("clearcompleted").style.display = "block"
         } else {
             document.getElementById("clearcompleted").style.display = "none"
         }
     });
 }
-allButton.onclick = event =>{
+allButton.onclick = event => {
     for (let i = 0; i < list.length; i++) {
         document.getElementById("todo").children[i].style.display = "block"
     }
 }
 
+activeButton.onclick = event => {
+    for (let i = 0; i < list.length; i++) {
+        let liElement = list[i].firstChild
+        if (liElement.checked) {
+            document.getElementById("todo").children[i].style.display = "none"
+        }
+        else {
+            document.getElementById("todo").children[i].style.display = "block"
+        }
+    }
+}
 
-activeButton.onclick = event =>{
+completedButton.onclick = event => {
     for (let i = 0; i < list.length; i++) {
-            let liElement = list[i].firstChild
-        if (liElement.checked) {
-            document.getElementById("todo").children[i].style.display = "none"
-        }
-        else{
-            document.getElementById("todo").children[i].style.display = "block"
-        }
-    }
-}
-completedButton.onclick = event =>{
-    for (let i = 0; i < list.length; i++) {
-            let liElement = list[i].firstChild
+        let liElement = list[i].firstChild
         if (liElement.checked) {
             document.getElementById("todo").children[i].style.display = "block"
         }
-        else{
+        else {
             document.getElementById("todo").children[i].style.display = "none"
         }
     }
 }
-clearCompletedButton.onclick = event =>{
+
+clearCompletedButton.onclick = event => {
     for (let i = list.length - 1; i >= 0; i--) {
-            let liElement = list[i].firstChild
+        let liElement = list[i].firstChild
         if (liElement.checked) {
             list[i].remove(list[i])
         }
-        else{
+        else {
             continue;
         }
     }
@@ -113,7 +112,7 @@ function CheckAll() {
             styleLinethrough();
         }
     }
-    if(CheckIfAnyIsChecked()){
+    if (CheckIfAnyIsChecked()) {
         document.getElementById("clearcompleted").style.display = "block"
     } else {
         document.getElementById("clearcompleted").style.display = "none"
@@ -157,23 +156,23 @@ function hideFooter() {
     }
 }
 
-function styleLinethrough(){
+function styleLinethrough() {
     for (let i = 0; i < list.length; i++) {
         let liElement = list[i].firstChild
         if (liElement.checked) {
             list[i].style.textDecoration = "line-through";
         }
-        else{
+        else {
             list[i].style.textDecoration = "none";
         }
     }
 }
-function CheckIfAnyIsChecked(){
+function CheckIfAnyIsChecked() {
     let listItems = document.getElementById('todo').getElementsByTagName('li');
     let isChecked = false;
     for (let index = 0; index < listItems.length; index++) {
         const element = listItems[index].firstChild;
-        if(element.checked){
+        if (element.checked) {
             isChecked = true;
         }
     }
