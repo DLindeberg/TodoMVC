@@ -79,7 +79,7 @@ completedButton.onclick = event =>{
     }
 }
 clearCompletedButton.onclick = event =>{
-    for (let i = 0; i < list.length; i++) {
+    for (let i = list.length - 1; i >= 0; i--) {
             let liElement = list[i].firstChild
         if (liElement.checked) {
             list[i].remove(list[i])
@@ -88,6 +88,7 @@ clearCompletedButton.onclick = event =>{
             continue;
         }
     }
+    checkState();
 }
 
 function CheckAll() {
@@ -122,8 +123,10 @@ function deleteTodo() {
                 counter--;
             }
             document.getElementById("count").innerHTML = counter + " items left";
+            checkState();
         }
     }
+    checkState();
 }
 
 function checkState() {
