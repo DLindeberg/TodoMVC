@@ -3,8 +3,13 @@ let form = document.querySelector("form");
 let input = document.querySelector("#input");
 let counter = 0;
 document.getElementById("todofooter").style.display = "none";
+let checkBoxes = document.getElementById("checkall");
+let allButton = document.querySelector("#all");
+let activeButton = document.querySelector("#active");
+let completedButton = document.querySelector("#completed");
+let clearCompletedButton = document.querySelector("#clearcompleted");
+let list = document.getElementById('todo').getElementsByTagName('li');
 
-let checkBoxes = document.getElementById("checkall")
 
 form.onsubmit = event => {
     event.preventDefault();
@@ -23,6 +28,7 @@ enterbutton.onclick = event => {
     document.getElementById("count").innerHTML = counter + " items left";
     deleteTodo();
 
+
     const inputInput = document.getElementById('input');
     inputInput.value = '';
     checkState();
@@ -37,6 +43,44 @@ enterbutton.onclick = event => {
         document.getElementById("count").innerHTML = counter + " items left";
     });
 }
+allButton.onclick = event =>{
+    for (let i = 0; i < list.length; i++) {
+        document.getElementById("todo").children[i].style.display = "block"
+    }
+}
+activeButton.onclick = event =>{
+    for (let i = 0; i < list.length; i++) {
+            liElement = list[i].firstChild
+        if (liElement.checked) {
+            document.getElementById("todo").children[i].style.display = "none"
+        }
+        else{
+            document.getElementById("todo").children[i].style.display = "block"
+        }
+    }
+}
+completedButton.onclick = event =>{
+    for (let i = 0; i < list.length; i++) {
+            liElement = list[i].firstChild
+        if (liElement.checked) {
+            document.getElementById("todo").children[i].style.display = "block"
+        }
+        else{
+            document.getElementById("todo").children[i].style.display = "none"
+        }
+    }
+}
+clearCompletedButton.onclick = event =>{
+    for (let i = 0; i < list.length; i++) {
+            liElement = list[i].firstChild
+        if (liElement.checked) {
+            list[i].remove(list[i])
+        }
+        else{
+            continue;
+        }
+    }
+}
 
 checkBoxes.onclick = event => {
     CheckAll();
@@ -46,8 +90,8 @@ function CheckAll() {
     var shouldChecked = document.getElementById('checkall');
     var todos = document.getElementById('todo').getElementsByTagName('li');
 
-    for (let index = 0; index < todos.length; index++) {
-        let liElement = todos[index].firstChild;
+    for (let i = 0; i < todos.length; i++) {
+        let liElement = todos[i].firstChild;
         shouldChecked.checked ? liElement.checked = true : liElement.checked = false
         if (shouldChecked.checked) {
             liElement.checked = true;
@@ -66,7 +110,6 @@ function deleteTodo() {
     for (i = 0; i < remove.length; i++) {
         remove[i].onclick = function () {
             var li = this.parentElement;
-
             var elem = li.firstChild;
             console.log(elem.checked);
             li.remove(li);
