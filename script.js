@@ -40,7 +40,6 @@ enterbutton.onclick = event => {
         if (this.checked) {
             counter--;
             styleLinethrough();
-            
         } else {
             counter++;
             styleLinethrough();
@@ -152,9 +151,11 @@ function styleLinethrough(){
         let liElement = list[i].firstChild
         if (liElement.checked) {
             list[i].style.textDecoration = "line-through";
+            document.getElementById("clearcompleted").style.display = "block"
         }
         else{
             list[i].style.textDecoration = "none";
+            document.getElementById("clearcompleted").style.display = "none"
         }
     }
 }
