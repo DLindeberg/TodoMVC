@@ -6,7 +6,7 @@ h1{
     text-align: center;
     grid-area: a;
     margin-top:-5px;    
-    
+   
 }
 body{
     display: grid;
@@ -17,16 +17,14 @@ body{
     "d";
     justify-content: center;
     background: #f5f5f5;
-    color: #4d4d4d;
-    margin-top:10px;
 }
-
+ 
 header{
-
+ 
     grid-area: b;
     margin: auto;
     width: 100%;
-    
+   
 }
 main{
     margin: auto;
@@ -34,27 +32,29 @@ main{
     border: 1px;
     box-shadow: 7px 10px 100px 5px lightgray;
     grid-area: c;
-    border: 1px solid lightgray;
+    border-color: lightgray;
+    border-style: ridge;
+    margin-top:-50px;
 }
 main footer{
     grid-area: d;
 }
-
 #info{
     grid-area: d;
     text-align: center;
     font-size:10px;
     font-family: Arial, Helvetica, sans-serif;
-    color:rgb(141, 137, 137);
-    margin-top:50px;
+    color:#bfbfbf;
+    margin-top:30px;
 }
+
 #todo{
     list-style-type:none;
     padding: 0px;
     display:block;
 }
 a{
-    color:rgb(141, 137, 137);
+    color: #bfbfbf;
 }
 
 
@@ -70,22 +70,56 @@ main footer ul li button:hover{
 
 }
 #all{
-    margin-left:95px;
+    margin-left:90px;
     position:absolute;
 }
-
+#all:focus{
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
+   
+}
+#all:hover{
+    border-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
+}
 #clearcompleted{
     position:absolute;
-    margin-left:340px;
-
+    margin-left:335px;
+}
+#clearcompleted:hover{
+    border-color: transparent;
+    text-decoration: underline;
+ 
 }
 #active{
     margin-left:125px;
     position:absolute;
 }
+#active:focus{
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
+}
+#active:hover{
+    border-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
+}
 #completed{
-    margin-left:175px;
+    margin-left:180px;
     position:absolute;
+}
+#completed:focus{
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: lightgrey;
+    border-radius: 5px;
+}
+#completed:hover{
+    border-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
 }
 
 #inputarea{
@@ -105,9 +139,71 @@ main footer ul li button:hover{
     border: none;
     background-color: transparent;
     outline: none;
-    font-size: 18px;
+    font-size: 22px;
     font-style: italic;
     color:black;
+    height: 30px;
+    padding: 0;
+    position: relative;
+    width: 300px;
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+#input::placeholder{
+     color: rgb(224, 224, 224);
+     
+}
+.check{
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    -webkit-appearance: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(117, 114, 114, 0.15);
+    vertical-align: middle;
+
+}
+.check:checked{
+    
+    border-color: rgba(117, 114, 114, 0.15);
+}
+.check:after{
+    content:"";
+    display:none;
+
+}
+.check:checked:after{
+    display: block;
+}
+.check:after{
+    left: 10px;
+    top:3px;
+    width: 5px;
+    height: 15px;
+    border: solid green;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position:relative;
+}
+
+
+#checkall:before{
+    content:"\1F53D";
+
+}
+#checkall{
+    border-radius: 50px;
+    -webkit-appearance: none;
+    vertical-align: middle;
+    
+
+}
+.checkbox label:before{
+    border-radius:3px
 }
 
 main footer ul{
@@ -119,29 +215,47 @@ main footer ul{
 }
 main footer ul li{
     font-size:medium;
-
+   
+ 
 }
 .delete{  
     float:right;
     background:transparent;
     border:none;
     width: 5.5em;
+    opacity: 50%;
+}
+#count{
+    font-family: Arial, Helvetica, sans-serif;
     
-
 }
 main form{
     margin-top: 25px;;
-
+ 
+}
+#todolist >.delete{
+    display:none;
+}
+#todolist:hover > .delete{
+    display:block;
 }
 main ul #todolist{
-    margin-top:25px;
-}
+    margin-top:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(78, 77, 77);
+    font-size: 25px;
+    vertical-align: middle;
 
+}
+ 
 #count{
     font-size: 16px;
-
+ 
     color: rgb(156, 154, 154);
 }
 #enterbutton{
     display: none;
+}
+#todofooter{
+    height: 40px;
 }
