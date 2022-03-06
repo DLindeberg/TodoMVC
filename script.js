@@ -26,7 +26,7 @@ enterbutton.onclick = event => {
     }
     const thisTitle = document.createElement("li");
     thisTitle.setAttribute("id", "todolist");
-    thisTitle.innerHTML = "<input type='checkbox' class='check'>" + input.value + "<button class='delete'>❌</button>";
+    thisTitle.innerHTML = "<input type='checkbox' class='check'><label>" + input.value + "</label><button class='delete'>❌</button>";
     document.querySelector("#todo").appendChild(thisTitle)
     counter++;
     document.getElementById("count").innerHTML = counter + " items left";

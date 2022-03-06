@@ -5,8 +5,7 @@ h1{
     font-weight: normal;
     text-align: center;
     grid-area: a;
-    margin-top:-5px;    
-   
+    margin-top:-5px;      
 }
 body{
     display: grid;
@@ -20,11 +19,9 @@ body{
 }
  
 header{
- 
     grid-area: b;
     margin: auto;
-    width: 100%;
-   
+    width: 100%;   
 }
 main{
     margin: auto;
@@ -52,11 +49,11 @@ main footer{
     list-style-type:none;
     padding: 0px;
     display:block;
+    font-size: 0;
 }
 a{
     color: #bfbfbf;
 }
-
 
 main footer ul li button{
     background:transparent;
@@ -126,15 +123,8 @@ main footer ul li button:hover{
     border-bottom: 1px solid lightgray;
     height:50px;
 }
-#todo li{
-    border-bottom: 1.2px solid rgba(161, 155, 155, 0.15);
-    font-size: large;
-    height:50px;
-}
 
-#todo{
-    font-size: 0;
-}
+
 #input{
     border: none;
     background-color: transparent;
@@ -145,14 +135,12 @@ main footer ul li button:hover{
     height: 30px;
     padding: 0;
     position: relative;
-    width: 300px;
+    width: 520px;
     display: inline-block;
-    vertical-align: middle;
-    
+    vertical-align: middle;  
 }
 #input::placeholder{
-     color: rgb(224, 224, 224);
-     
+    color: rgb(224, 224, 224);    
 }
 .check{
     height: 30px;
@@ -163,16 +151,14 @@ main footer ul li button:hover{
     border-width: 1px;
     border-color: rgba(117, 114, 114, 0.15);
     vertical-align: middle;
-
+    float:left;
 }
-.check:checked{
-    
+.check:checked{   
     border-color: rgba(117, 114, 114, 0.15);
 }
 .check:after{
     content:"";
     display:none;
-
 }
 .check:checked:after{
     display: block;
@@ -189,23 +175,17 @@ main footer ul li button:hover{
     transform: rotate(45deg);
     position:relative;
 }
-
-
 #checkall:before{
     content:"\1F53D";
-
 }
 #checkall{
     border-radius: 50px;
     -webkit-appearance: none;
-    vertical-align: middle;
-    
-
+    vertical-align: middle;  
 }
 .checkbox label:before{
     border-radius:3px
 }
-
 main footer ul{
     font-size: 0;
     list-style-type:none;
@@ -215,23 +195,19 @@ main footer ul{
 }
 main footer ul li{
     font-size:medium;
-   
- 
 }
 .delete{  
     float:right;
     background:transparent;
     border:none;
     width: 5.5em;
-    opacity: 50%;
+    opacity: 50%;  
 }
 #count{
-    font-family: Arial, Helvetica, sans-serif;
-    
+    font-family: Arial, Helvetica, sans-serif;   
 }
 main form{
-    margin-top: 25px;;
- 
+    margin-top: 25px;; 
 }
 #todolist >.delete{
     display:none;
@@ -240,17 +216,21 @@ main form{
     display:block;
 }
 main ul #todolist{
+    width:550px;
     margin-top:20px;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(78, 77, 77);
     font-size: 25px;
-    vertical-align: middle;
-
+    border-bottom: 1.2px solid rgba(161, 155, 155, 0.15);
+    min-height:50px; 
+    display: block;
 }
- 
+label{
+    word-wrap:break-word;
+    word-break: break-all;
+}
 #count{
     font-size: 16px;
- 
     color: rgb(156, 154, 154);
 }
 #enterbutton{
@@ -259,3 +239,66 @@ main ul #todolist{
 #todofooter{
     height: 40px;
 }
+@media screen and (max-width: 700px) {
+    main {
+      width: 400px;
+    }
+    #clearcompleted {
+        margin-left: 275px;
+        font-size: 10px;
+      }
+      #all{
+          font-size: 10px;
+      }
+      #active{
+          font-size: 10px;
+      }
+      #completed{
+          font-size: 10px;
+      }
+      #count{
+          font-size: 10px;
+      }
+      #todolist{
+          max-width: 400px;
+      }
+      #input{
+          max-width: 340px;
+
+      }
+  }
+  @media screen and (max-width: 450px) {
+    main {
+        width: 320px;
+      }
+    #clearcompleted {
+      margin-left: 155px;
+      font-size: 10px;
+    }
+    #all{
+        margin-left: 20px;
+        font-size: 10px;
+    }
+    #active{
+        margin-left: 40px;
+        font-size: 10px;
+    }
+    #completed{
+        margin-left: 70px;
+        font-size: 10px;
+    }
+    #count{
+        margin-left: 0px;
+        font-size: 10px;
+    }
+    #input::placeholder{
+        font-size: 15px;
+    }
+    #input{
+        max-width: 260px;
+
+    }
+    #todolist{
+        max-width: 320px;
+    }
+  }
