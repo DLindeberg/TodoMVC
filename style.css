@@ -54,6 +54,9 @@ main footer{
 a{
     color: #bfbfbf;
 }
+#completed{
+    padding-right: 60px;
+}
 
 main footer ul li button{
     background:transparent;
@@ -66,64 +69,12 @@ main footer ul li button:hover{
     border: 1px solid rgba(175, 47, 47, 0.15);
 
 }
-#all{
-    margin-left:90px;
-    position:absolute;
-}
-#all:focus{
-    outline-style: solid;
-    outline-width: 1px;
-    outline-color: rgba(175, 47, 47, 0.1);
-    border-radius: 5px;
-   
-}
-#all:hover{
-    border-color: rgba(175, 47, 47, 0.1);
-    border-radius: 5px;
-}
-#clearcompleted{
-    position:absolute;
-    margin-left:335px;
-}
-#clearcompleted:hover{
-    border-color: transparent;
-    text-decoration: underline;
- 
-}
-#active{
-    margin-left:125px;
-    position:absolute;
-}
-#active:focus{
-    outline-style: solid;
-    outline-width: 1px;
-    outline-color: rgba(175, 47, 47, 0.1);
-    border-radius: 5px;
-}
-#active:hover{
-    border-color: rgba(175, 47, 47, 0.1);
-    border-radius: 5px;
-}
-#completed{
-    margin-left:180px;
-    position:absolute;
-}
-#completed:focus{
-    outline-style: solid;
-    outline-width: 1px;
-    outline-color: lightgrey;
-    border-radius: 5px;
-}
-#completed:hover{
-    border-color: rgba(175, 47, 47, 0.1);
-    border-radius: 5px;
-}
+
 
 #inputarea{
     border-bottom: 1px solid lightgray;
     height:50px;
 }
-
 
 #input{
     border: none;
@@ -189,13 +140,10 @@ main footer ul li button:hover{
 main footer ul{
     font-size: 0;
     list-style-type:none;
-    display:flex;
-    justify-content: left;
-    padding: 7px;
+    padding: 7px; 
+    display: block;
 }
-main footer ul li{
-    font-size:medium;
-}
+
 .delete{  
     float:right;
     background:transparent;
@@ -205,6 +153,61 @@ main footer ul li{
 }
 #count{
     font-family: Arial, Helvetica, sans-serif;   
+    font-size: 16px;
+    color: rgb(156, 154, 154);
+    padding:2px;
+    float:left;
+    align-items: center;
+    padding-right: 80px;
+}
+#all{
+    float:left;
+    
+}
+#active{
+    float:left;
+}
+#completed{
+    float:left;
+}
+#clearcompleted{
+    float:right;
+}
+#all:focus{
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
+   
+}
+#all:hover{
+    border-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
+}
+#clearcompleted:hover{
+    border-color: transparent;
+    text-decoration: underline;
+ 
+}
+#active:focus{
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
+}
+#active:hover{
+    border-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
+}
+#completed:focus{
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: lightgrey;
+    border-radius: 5px;
+}
+#completed:hover{
+    border-color: rgba(175, 47, 47, 0.1);
+    border-radius: 5px;
 }
 main form{
     margin-top: 25px;; 
@@ -229,10 +232,7 @@ label{
     word-wrap:break-word;
     word-break: break-all;
 }
-#count{
-    font-size: 16px;
-    color: rgb(156, 154, 154);
-}
+
 #enterbutton{
     display: none;
 }
@@ -243,62 +243,58 @@ label{
     main {
       width: 400px;
     }
-    #clearcompleted {
-        margin-left: 255px;
-        font-size: 10px;
-      }
-      #all{
-          font-size: 10px;
-      }
-      #active{
-          font-size: 10px;
-      }
-      #completed{
-          font-size: 10px;
-      }
-      #count{
-          font-size: 10px;
-      }
-      #todolist{
+    #todolist{
           max-width: 400px;
-      }
-      #input{
+    }
+    #input{
           max-width: 340px;
 
-      }
+    }
+    #clearcompleted{
+        font-size: 10px;
+    }
+    #count{
+        font-size: 10px;
+        padding-right: 50px;
+    }
+    #all{
+        font-size: 12px;  
+    }
+    #active{
+        font-size: 12px;
+    }
+    #completed{
+        font-size: 12px;
+    }
+
   }
   @media screen and (max-width: 450px) {
     main {
         width: 320px;
       }
-    #clearcompleted {
-      margin-left: 155px;
-      font-size: 10px;
-    }
-    #all{
-        margin-left: 20px;
-        font-size: 10px;
-    }
-    #active{
-        margin-left: 40px;
-        font-size: 10px;
-    }
-    #completed{
-        margin-left: 70px;
-        font-size: 10px;
-    }
-    #count{
-        margin-left: 0px;
-        font-size: 10px;
-    }
     #input::placeholder{
         font-size: 15px;
     }
     #input{
         max-width: 260px;
-
     }
     #todolist{
         max-width: 320px;
+    }
+    #clearcompleted{
+        font-size: 8px;
+    }
+    #count{
+        font-size: 9px;
+        padding-right: 20px;
+    }
+    #all{
+        font-size: 9px;    
+    }
+    #active{
+        font-size: 9px;
+    }
+    #completed{
+        font-size: 9px;
     }
   }
