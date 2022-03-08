@@ -16,7 +16,7 @@ form.onsubmit = event => {
 }
 
 checkBoxes.onclick = event => {
-    CheckAll();
+    checkAll();
 }
 
 enterbutton.onclick = event => {
@@ -30,7 +30,7 @@ enterbutton.onclick = event => {
     document.querySelector("#todo").appendChild(thisTitle)
     counter++;
     document.getElementById("count").innerHTML = counter + " items left";
-    deleteTodo();
+    enableDeleteTodo();
     const inputInput = document.getElementById('input');
     inputInput.value = '';
     checkState();
@@ -45,7 +45,7 @@ enterbutton.onclick = event => {
         }
         document.getElementById("count").innerHTML = counter + " items left";
 
-        if (CheckIfAnyIsChecked()) {
+        if (checkIfAnyIsChecked()) {
             document.getElementById("clearcompleted").style.display = "block"
         } else {
             document.getElementById("clearcompleted").style.display = "none"
@@ -95,7 +95,7 @@ clearCompletedButton.onclick = event => {
     checkState();
 }
 
-function CheckAll() {
+function checkAll() {
     let shouldChecked = document.getElementById('checkall');
     let todos = document.getElementById('todo').getElementsByTagName('li');
 
@@ -112,7 +112,7 @@ function CheckAll() {
             styleLinethrough();
         }
     }
-    if (CheckIfAnyIsChecked()) {
+    if (checkIfAnyIsChecked()) {
         document.getElementById("clearcompleted").style.display = "block"
     } else {
         document.getElementById("clearcompleted").style.display = "none"
@@ -120,7 +120,7 @@ function CheckAll() {
     document.getElementById("count").innerHTML = counter + " items left";
 }
 
-function deleteTodo() {
+function enableDeleteTodo() {
     let remove = document.getElementsByClassName("delete");
     let i;
     for (i = 0; i < remove.length; i++) {
@@ -169,7 +169,7 @@ function styleLinethrough() {
         }
     }
 }
-function CheckIfAnyIsChecked() {
+function checkIfAnyIsChecked() {
     let listItems = document.getElementById('todo').getElementsByTagName('li');
     let isChecked = false;
     for (let index = 0; index < listItems.length; index++) {
